@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+
+                // When click  on correct answer button, set the green color
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function() {
+                   correct.style.backgroundColor = 'green';
+                   document.querySelector('#comment').innerHTML = 'Correct!';
+                });
+
+                // When click  on incorrect answer button, set the red color
+                let incorrect = document.querySelectorAll('.incorrect');
+
+                for (let i = 0; i < incorrect.length; i++)
+                {
+                    incorrect[i].addEventListener('click', function() {
+                        incorrect[i].style.backgroundColor = 'red';
+                        document.querySelector('#comment').innerHTML = 'Incorrect'
+                    });
+                }
+
+                // check the submission of the second question
+                document.querySelector('#sub').addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value == "Netscape"){
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#comment-2').innerHTML = 'Correct!';
+                    }
+                    else
+                    {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#comment-2').innerHTML = 'Incorrect!';
+                    }
+                });
+
+                // check the submission of the third question
+                document.querySelector('#sub2').addEventListener('click', function() {
+                    let input2 = document.querySelector('.advanced');
+                    if (input2.value == "Executive Director"){
+                        input2.style.backgroundColor = 'green';
+                        document.querySelector('#comment-3').innerHTML = 'Correct!';
+                    }
+                    else
+                    {
+                        input2.style.backgroundColor = 'red';
+                        document.querySelector('#comment-3').innerHTML = 'Incorrect!';
+                    }
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>In what year was Brendan Eich born?</h3>
+
+                <button class="incorrect" type="submit">1957</button>
+                <button class="incorrect" type="submit">1971</button>
+                <button class="correct" type="submit">1961</button>
+                <button class="incorrect" type="submit">1982</button>
+                <button class="incorrect" type="submit">1948</button>
+
+                <p id="comment"></p>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Where did Brendan Eich work when he created the JavaScript programming language?</h3>
+                <input type="text"></input> <button id="sub" type="submit">Submit</button>
+
+                <p id="comment-2"></p>
+            </div>
+
+             <div class="section">
+                <h2>Part 3: Free Response Advanced</h2>
+                <hr>
+                <h3>What position did Brendan Eich get on March 26, 2014 at Mozilla</h3>
+                <input class="advanced" type="text"></input> <button id="sub2" type="submit">Submit</button>
+
+                <p id="comment-3"></p>
+            </div>
+
+        </div>
+    </body>
+</html>
